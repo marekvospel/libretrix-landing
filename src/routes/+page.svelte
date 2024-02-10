@@ -1,84 +1,34 @@
 <script lang="ts">
   import '@unocss/reset/tailwind.css'
-  import LibretrixButton from '$/components/LibretrixButton.svelte'
+
   import LibretrixContainer from '$/components/LibretrixContainer.svelte'
-
-  function scrollIntoView(target: string) {
-    const el = document.querySelector(target)
-
-    el?.scrollIntoView({ behavior: 'smooth' })
-  }
+  import HeroSection from '$/sections/HeroSection.svelte'
+  import ChatWithFriendsSection from '$/sections/ChatWithFriendsSection.svelte'
+  import OpensoureSection from '$/sections/OpensoureSection.svelte'
+  import FooterSection from '$/sections/FooterSection.svelte'
 </script>
 
 <svelte:head>
   <title>Libretrix</title>
+  <meta name="og:title" content="Libretrix">
+  <meta name="description" content="A modern opensource matrix client">
+  <meta name="og:description" content="A modern opensource matrix client">
+  <meta name="author" content="Marek Vospěl">
+  <meta name="og:url" content="https://libretrix.org">
 </svelte:head>
 
 <main>
   <LibretrixContainer>
-    <section id="hero" class="flex flex-row items-center w-full py-[35vh] px-8 isolate">
-      <div class="w-full flex justify-end relative">
-        <div class="flex flex-col items-end gap-6 w-full max-w-[80%] md:max-w-[min(90%,60rem)]">
-          <h2 class="text-4xl xl:text-6xl font-bold text-right">
-            <span>Join the world of</span>
-            <span class="text-primary-400 font-medium whitespace-nowrap">[ <span class="text-text">secure</span> ]</span>
-            <span>messaging</span>
-          </h2>
-          <div class="absolute w-40 h-40 rounded-full blur-80 bg-[#7CC2D8] bg-opacity-60 sm:bg-opacity-75 translate-y-[-25%] -z-10 md:hidden" />
-          <span class="flex flex-row justify-end flex-wrap gap-2">
-            <a href="#chat-with-your-friends" on:click|preventDefault={() => scrollIntoView('#chat-with-your-friends')}>
-              <LibretrixButton color="secondary">Learn more</LibretrixButton>
-            </a>
-            <a href="https://app.libretrix.org/">
-              <LibretrixButton>
-                <span class="text-white">Log in</span>
-              </LibretrixButton>
-            </a>
-          </span>
-        </div>
-      </div>
-      <div class="w-[50%] hidden md:block relative">
-        <div class="absolute w-70 h-70 rounded-full blur-300 bg-[#7CC2D8] bg-opacity-60 translate-x-[-15%] translate-y-[-80%] -z-10" />
-        <div class="absolute w-80 h-80 rounded-full blur-400 bg-[#80C87E] bg-opacity-70 translate-x-[-60%] translate-y-[-20%] -z-10" />
-      </div>
-    </section>
-    <section id="chat-with-your-friends" class="flex flex-col md:flex-row items-center gap-8 md:items-unset justify-center py-[35vh]">
-      <div class="w-[70%] md:w-full max-w-150 flex flex-col gap-2">
-        <h2 class="text-4xl font-bold">Chat with your friends</h2>
-        <p class="text-text-semilight">In a familiar interface</p>
-      </div>
-      <div class="w-full max-w-80 pt-4">
-        <div class="flex flex-col gap-4">
-          <div class="flex flex-row items-end gap-4">
-            <div class="bg-primary px-4 py-2 rounded-xl text-white">
-              <p>Chat freely, keep your data away from big tech</p>
-            </div>
-            <div class="h-12 w-12 bg-text rounded-full shrink-0" />
-          </div>
-          <div class="flex flex-row items-end gap-4">
-            <div class="h-12 w-12 bg-text rounded-full shrink-0" />
-            <div class="bg-[#BAC8D9] px-4 py-2 rounded-xl text-text-dark">
-              <p>Encryption keeps your chats private</p>
-            </div>
-          </div>
-          <div class="flex flex-row items-end gap-4">
-            <div class="bg-primary px-4 py-2 rounded-xl text-white">
-              <p>
-                <span>Built on the</span>
-                <a href="https://matrix.org" target="_blank" rel="noreferrer noopener" class="underline whitespace-nowrap">[ matrix ] protocol</a>
-                <span>!</span>
-              </p>
-            </div>
-            <div class="h-12 w-12 bg-text rounded-full shrink-0" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <h1 class="hidden">Libretrix</h1>
+    <HeroSection />
+    <ChatWithFriendsSection />
+    <OpensoureSection />
+    <FooterSection />
   </LibretrixContainer>
 </main>
 
 <style>
   :global(body) {
-    @apply min-h-screen bg-primary-900 text-text;
+    @apply min-h-[100dwh] bg-primary-900 text-text;
   }
 </style>
